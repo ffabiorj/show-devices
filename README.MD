@@ -75,3 +75,9 @@ Response:
 ]
 
 ```
+
+To test the api, use:
+
+```
+pytest
+```
