@@ -53,6 +53,22 @@ def test_create_device(api_client, get_auth_token, create_user):
     assert response.data["name"] == "New Device"
 
 
+def test_try_create_device_without_token(api_client, create_user):
+    """Test device error"""
+
+    url = reverse("devices")
+    data = {
+        "user": create_user.id,
+        "name": "New Device",
+        "ip": "192.168.1.2",
+        "is_active": True,
+    }
+    response = api_client.post(url, data, format="json")
+
+    assert response.status_code == 401
+    assert response.data["message"] == "Hello, anonymous user!"
+
+
 def test_get_device_list(api_client, get_auth_token, create_device):
     """Test retrieving the device list."""
     url = reverse("devices")
