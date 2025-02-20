@@ -5,7 +5,6 @@ Development tools:
 - Django
 - Django rest Framework
 
-
 ## How to run locally:
 
 1. Clone the repository.
@@ -15,7 +14,8 @@ Development tools:
 5. Install the dependencies.
 6. Execute the env_gen.
 7. Run the migration.
-8. Run the server.
+8. Create a superuser
+9. Run the server.
 
 ```
 git clone git@github.com:ffabiorj/show-devices.git
@@ -25,21 +25,8 @@ sourch .venv/bin/activate
 pip install -r requirements.txt
 python env_gen.py
 python manage.py migrate
+python manage.py createsuperuser
 python manage.py runserver
-```
-
-
-### Endpoint to create a login:
-
-Method post localhost:8000/api/v1/register/
-
-Body
-
-```
-{
-    "email": "teste@teste.com",
-    "password": "teste"
-}
 ```
 
 ### Endpoint to generate a login token:
@@ -84,20 +71,6 @@ Response:
     "ip": "127.0.0.1",
     "is_active": true
 },
-{
-    "name": "test2",
-    "ip": "127.0.0.11",
-    "is_active": true
-}
 ]
 
-```
-
-
-## How to execute tests:
-
-1. To test the api, use:
-
-```
-python manage.py test
 ```
