@@ -1,2 +1,7 @@
 [tool.black]
 line-length = 79
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "show_devices.settings"
+# -- recommended but optional:
+python_files = ["tests.py"]
