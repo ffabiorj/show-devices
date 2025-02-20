@@ -37,7 +37,7 @@ Body
 
 ```
 {
-    "email": "teste",
+    "email": "teste@teste.com",
     "password": "teste"
 }
 ```
@@ -50,7 +50,8 @@ Body
 
 ```
 {
-    "name": "test",
+    "user": 1,
+    "name": "test@fabio.com",
     "ip": "127.0.0.1",
     "is_active": true
 }
