@@ -63,6 +63,7 @@ def test_get_device_list(api_client, get_auth_token, create_device):
 
 
 def test_should_not_show_list_device_from_other_user(api_client, create_device):
+    """Test should return zero data"""
     user = User.objects.create_user(
         username="teste2", email="teste2@test2.com", password="teste2"
     )
@@ -71,3 +72,11 @@ def test_should_not_show_list_device_from_other_user(api_client, create_device):
     url = reverse("devices")
     response = api_client.get(url, headers=token)
     assert len(response.data) == 0
+
+
+def test_should_return_error(api_client, create_device):
+    """Test Should return error 401"""
+    url = reverse("devices")
+    response = api_client.get(url)
+    assert response.data["message"] == "Hello, anonymous user!"
+    assert response.status_code == 401
