@@ -34,6 +34,7 @@ docker compose up --build
 docker compose run web python manage.py migrate
 docker compose run web python manage.py createsuperuser
 ```
+#### If you use docker compose, remember to change the host to 0.0.0.0
 
 ### Endpoint to generate a login token:
 
