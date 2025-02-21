@@ -16,8 +16,14 @@ CONFIG_STRING = (
     """
 DEBUG=True
 SECRET_KEY=%s
-ALLOWED_HOSTS=localhost,127.0.0.1
-
+ALLOWED_HOSTS=0.0.0.0,localhost,127.0.0.1
+DJANGO_LOGLEVEL=info
+DATABASE_ENGINE=postgresql_psycopg2
+DATABASE_NAME=dockerdjango
+DATABASE_USERNAME=postgres
+DATABASE_PASSWORD=postgres
+DATABASE_HOST=db
+DATABASE_PORT=5432
 """.strip()
     % secret_key
 )
