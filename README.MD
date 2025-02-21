@@ -12,10 +12,9 @@ Development tools:
 3. Create an enviroment with Python 3.12.
 4. Activate the enviroment.
 5. Install the dependencies.
-6. Execute the env_gen.
-7. Run the migration.
-8. Create a superuser
-9. Run the server.
+6. Run the migration.
+7. Create a superuser
+8. Run the server.
 
 ```
 git clone git@github.com:ffabiorj/show-devices.git
@@ -23,10 +22,17 @@ cd show_devices
 python3 -m venv .venv
 sourch .venv/bin/activate
 pip install -r requirements.txt
-python env_gen.py
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
+```
+
+## Using Docker compose
+```
+python contrib/env_gen.py
+docker compose up --build
+docker compose run web python manage.py migrate
+docker compose run web python manage.py createsuperuser
 ```
 
 ### Endpoint to generate a login token:
